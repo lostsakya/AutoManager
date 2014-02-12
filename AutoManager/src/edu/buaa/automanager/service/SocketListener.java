@@ -1,11 +1,10 @@
 package edu.buaa.automanager.service;
 
-
 public interface SocketListener {
-	public void onSocketStart(String string, String msg);
+	public void onSocketStart();
 
-	public void onSocketSuccess();
+	public void onSocketSuccess(int action, String msg);
 
-	public void onSocketError(String string, String msg, Exception e);
+	public void onSocketError(int action, Exception e);
 
 }

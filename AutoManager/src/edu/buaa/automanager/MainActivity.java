@@ -13,14 +13,13 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import com.example.automanager.R;
-
 import edu.buaa.automanager.service.SocketService;
+import edu.buaa.automanager.utils.LogUtil;
 import edu.buaa.automanager.utils.MsgSender;
 import edu.buaa.automanager.utils.ToastUtil;
 
 public class MainActivity extends BaseSocketActivity implements OnClickListener {
-
+	private String TAG = getClass().getSimpleName();
 	private Socket socketClient;
 	private BufferedReader in;
 	private PrintWriter out;
@@ -47,10 +46,10 @@ public class MainActivity extends BaseSocketActivity implements OnClickListener 
 			String password = etPassword.getText().toString();
 			if (verify(username, password)) {
 				String message = MsgSender.getLoginMsg(username, password);
+				LogUtil.log(TAG, message);
 				bindService(new Intent(getApplicationContext(), SocketService.class), connection,
 						Context.BIND_AUTO_CREATE);
 				sendMessage(message);
-				out.close();
 			}
 			break;
 		default:
@@ -62,10 +61,12 @@ public class MainActivity extends BaseSocketActivity implements OnClickListener 
 	private boolean verify(String username, String password) {
 		if (TextUtils.isEmpty(username)) {
 			ToastUtil.shortUtil(getApplicationContext(), "用户名不能为空");
+			return false;
 		}
 		if (TextUtils.isEmpty(password)) {
 			ToastUtil.shortUtil(getApplicationContext(), "密码不能为空");
+			return false;
 		}
-		return false;
+		return true;
 	}
 }
