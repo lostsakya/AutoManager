@@ -7,8 +7,7 @@ public class MsgSender {
 	}
 
 	public static String getLoginMsg(String username, String password) {
-		return fullMsg(Protocal.COMMAND_LOGIN, lengthAndString(username)
-				+ lengthAndString(password));
+		return fullMsg(Protocal.COMMAND_LOGIN, lengthAndString(username) + lengthAndString(password));
 	}
 
 	private static String twoDigitLength(String string) {
@@ -24,5 +23,10 @@ public class MsgSender {
 
 	private static String lengthAndString(String string) {
 		return twoDigitLength(string) + string;
+	}
+
+	public static String getLogoutMsg() {
+		// TODO Auto-generated method stub
+		return "@%@4%@%";
 	}
 }

@@ -22,6 +22,7 @@
             style="@style/text_common"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="sjcs1"
             android:hint="请输入用户名" />
     </LinearLayout>
 
@@ -42,6 +43,7 @@
             style="@style/text_common"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="123456"
             android:hint="请输入密码" />
     </LinearLayout>
 
@@ -51,5 +53,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="登录" />
+    <Button 
+        android:id="@+id/btn_logout"
+        style="@style/text_common"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注销"
+        
+        />
 
 </LinearLayout>
